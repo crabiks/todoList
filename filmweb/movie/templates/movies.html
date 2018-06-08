@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spis filmow</title>
+</head>
+<body>
+
+<form action="#" method="POST">
+    {% csrf_token %}
+    <label>Posortuj filmy wg. oceny:</label><br>
+    <button type="submit" name="sorted" value="1">Malejąco</button>
+    <button type="submit" name="sorted" value="2">Rosnąco</button>
+    <button type="submit" name="sorted" value="0">Sortuj domyślnie</button>
+</form>
+<br><br>
+
+{% for m in movies %}
+<p><a href="/../movie_details/{{m.id}}">{{m.title}}</a> ({{m.year}}) {{m.director.first_name}} {{m.director.last_name}}
+    {{m.rating}} <a href="/../edit_movie/{{m.id}}">(edycja)</a></p>
+{% endfor %}
+<a href="/../add_movie/">DODAJ NOWY FILM</a>
+</body>
+</html>

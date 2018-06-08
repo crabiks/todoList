@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Szukaj filmu</title>
+</head>
+<body>
+    <form action="#" method="POST">
+        {% csrf_token %}
+        <fieldset><legend>Szukaj filmu</legend>
+            <label>Tytuł</label>
+            <input name="title" type="text" maxlength="32" placeholder="Tytul"/><br><br>
+            <label>Imię osoby</label>
+            <input name="first_name" type="text" maxlength="32" placeholder="Imie osoby"/><br>
+            <label>Nazwisko osoby</label>
+            <input name="last_name" type="text" maxlength="32" placeholder="Nazwisko osoby"/><br><br>
+            <label>Rok produkcji</label>
+            <input name="year_from" type="number" maxlength="32" placeholder="Od"/>
+            <input name="year_to" type="number" maxlength="32" placeholder="Do"/><br><br>
+            <label>Ocena filmu</label>
+            <input name="rating_from" type="number" maxlength="32" min="0" max="10" step="0.01" placeholder="Od"/>
+            <input name="rating_to" type="number" maxlength="32" min="0" max="10" step="0.01" placeholder="Do"/><br><br>
+            <label>Gatunek</label>
+            <input name="genre" type="text" maxlength="32"placeholder="Gatunek"/><br><br>
+            <button type="submit" name="submit">Szukaj</button>
+        </fieldset>
+    </form><br>
+    Filmy:<br>
+    {% for movie in movies %}
+    <b>{{ movie.title }}</b> <br>
+    {% endfor %}
+</body>
+</html>

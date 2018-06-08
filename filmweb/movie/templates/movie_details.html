@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<span lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{movie.title}}({{movie.year}}</title>
+</head>
+
+<span><i>(id {{movie.id}})</i></span>
+<h1>{{movie.title}}({{movie.year}})</h1>
+<p>Rezyser <b> {{movie.director.first_name}} {{movie.director.last_name}} </b></p>
+<p>Scenarzysta <b>{{movie.screenplay.first_name}} {{movie.screenplay.last_name}}</b></p>
+<p>Ocena <b>{{movie.rating}}</b></p>
+<p>Gatunek:<br>
+    {% for g in genre %}
+    <b>{{g.name}}</b><br>
+    {% endfor %}
+</p>
+<p>Obsada:<br>
+    {% for r in role %}
+    <b>{{r.person.first_name}} {{r.person.last_name}} </b> ( {{r.role}} )<br>
+    {% endfor %}
+</p>
+
+</body>
+</html>

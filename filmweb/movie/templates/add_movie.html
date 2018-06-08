@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj film</title>
+</head>
+<body>
+<form  method="POST">
+    {% csrf_token %}
+    <label>Tytuł</label>
+    <input name="title"><br>
+    <label>Rok produkcji</label>
+    <input name="year"><br>
+    <label>Ocena</label>
+    <input name="rating"><br>
+    <label>Rezyser</label>
+    <select name="director_id">
+        {% for p in person %}
+        <option value={{p.id}}>{{p.first_name}} {{p.last_name}}</option>
+        {% endfor %}
+    </select><br>
+    <label>Scenarzysta</label>
+    <select name="screenplay_id">
+        {% for p in person %}
+        <option value={{p.id}}>{{p.first_name}} {{p.last_name}}</option>
+        {% endfor %}</select><br>
+    <input type="submit" value="Dodaj">
+</form>
+</body>
+</html>

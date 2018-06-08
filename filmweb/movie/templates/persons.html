@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Osoby</title>
+</head>
+<body>
+{% for x in persons %}
+<p>{{x.first_name}} <a href="/../edit_person/{{x.id}}">{{x.last_name}}</a></p>
+{% endfor %}
+<a href="/../add_person/">DODAJ NOWĄ OSOBĘ</a>
+</body>
+</html>

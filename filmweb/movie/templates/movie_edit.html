@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj film {{movie.title}} </title>
+</head>
+<body>
+<form  method="POST">
+    {% csrf_token %}
+    <label>Tytul</label>
+    <input name="title" value="{{movie.title}}"><br>
+    <label>Rok produkcji</label>
+    <input name="year" value={{movie.year}}><br>
+    <label>Ocena</label>
+    <input name="rating" value={{movie.rating}}><br>
+    <label>Rezyser</label>
+    <select name="director_id">
+        <option selected hidden>{{movie.director.first_name}} {{movie.director.last_name}}</option>
+        {% for p in person %}
+        <option value={{p.id}}>{{p.first_name}} {{p.last_name}}</option>
+        {% endfor %}
+    </select><br>
+    <label>Scenarzysta</label>
+    <select name="screenplay_id">
+        <option selected hidden>{{movie.screenplay.first_name}} {{movie.screenplay.last_name}}</option>
+        {% for p in person %}
+        <option value={{p.id}}>{{p.first_name}} {{p.last_name}}</option>
+        {% endfor %}
+    </select><br>
+    <input type="submit" value="Aktualizuj">
+</form>
+</body>
+</html>
